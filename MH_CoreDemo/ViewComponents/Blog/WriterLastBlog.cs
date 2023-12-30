@@ -10,7 +10,7 @@ namespace MH_CoreDemo.ViewComponents.Blog
 {
     public class WriterLastBlog:ViewComponent
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
+        BlogManager bm = new BlogManager(new EfNatificationrepository());
         public IViewComponentResult Invoke()
         {
             var result = bm.GetBlogByWriter(1);

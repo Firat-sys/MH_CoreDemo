@@ -20,7 +20,9 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.WriterPassword).Must(ContainUppercase).WithMessage("Şifrede en az bir büyük harf kullanılmalı");
             RuleFor(x => x.WriterPassword).Must(ContainLowercase).WithMessage("Şifrede en az bir küçük harf kullanılmalı");
             RuleFor(x => x.WriterPassword).Must(ContainDigit).WithMessage("Şifrede en az bir sayı kullanılmalı");
-         
+            RuleFor(x => x.ConfirmPassword).Equal(x => x.WriterPassword).WithMessage("Şifreler eşleşmiyor"); // Ekledik
+
+            // Diğer kontroller...
         }
 
         private bool ContainUppercase(string password)
@@ -38,5 +40,6 @@ namespace BusinessLayer.ValidationRules
             return password.Any(char.IsDigit);
         }
     }
+
 }
 

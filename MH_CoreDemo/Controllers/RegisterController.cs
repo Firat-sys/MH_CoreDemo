@@ -51,7 +51,7 @@ namespace MH_CoreDemo.Controllers
             {
                 writer.WriterAbout = "Deneme test";
                 writer.WriterStatus = true;
-                wm.WriterAdd(writer);
+                wm.TAdd(writer);
                 return RedirectToAction("Index", "Blog");
             }
             else

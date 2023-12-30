@@ -1,0 +1,26 @@
+﻿@using MH_CoreDemo.Controllers
+@model List<Class1>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <th>@item.Id</th>
+    <th>@item.Name</th>
+    <th><a href="/EmployeeTest/EditEmployee/@item.Id" class="btn btn-danger">Düzenle</a></th>
+    <th><a href="/EmployeeTest/DeleteEmployee/@item.Id" class="btn btn-success">Sil</a></th>
+</tr>
+    }
+
+</table>
+<a href="/EmployeeTest/AddEmployee/" class="bnt btn-outline-primary">Yeni Çalışan Girişi</a>

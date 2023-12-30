@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstruct
 {
-   public interface IBlogService
+   public interface IBlogService:IGenericSevice<Blog>
     {
-        void BlogAdd(Blog blog);
-        void BlogDelete(Blog blog);
-        void BlogUpdate(Blog blog);
-        List<Blog> BlogGetListAll();
-        Blog BlogGetById(int id);
         List<Blog> GetBlogListWithCategory();
         List<Blog> GetBlogByWriter(int id);
     }

@@ -61,3 +61,8 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+# .gitattributes
+*.html text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstruct
 {
-   public interface ICategoryService
+   public interface ICategoryService:IGenericSevice<Category>
     {
-        void CategoryAdd(Category category);
-        void CategoryDelete(Category category);
-        void CategoryUpdate(Category category);
-        List<Category> GetListAll();
-        Category GetById(int id);
+        //void CategoryAdd(Category category);
+        //void CategoryDelete(Category category);
+        //void CategoryUpdate(Category category);
+        //List<Category> GetListAll();
+        //Category GetById(int id);
     }
 }

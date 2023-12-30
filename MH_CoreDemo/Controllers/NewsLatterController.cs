@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,16 @@ using System.Threading.Tasks;
 
 namespace MH_CoreDemo.Controllers
 {
+    [AllowAnonymous]
     public class NewsLatterController : Controller
     {
         NewsLatterManager nm = new NewsLatterManager(new EfNewsLatterRepository());
 
         [HttpGet]
-        public IActionResult SubScribeMail()
+
+        public PartialViewResult SubScribeMail()
         {
-            return View();
+            return PartialView();
         }
         [HttpPost]
         public IActionResult SubScribeMail(NewsLatter p)
@@ -24,7 +27,7 @@ namespace MH_CoreDemo.Controllers
            p.MailStatus = true;
             nm.AddnewsLatter(p);
            // Response.Redirect("/NewsLatter/SubScribeMail/" + 1);
-            return RedirectToAction("Index","Blog");
+            return PartialView();
         }
     }
 }

@@ -11,13 +11,21 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.EntityFramework
 {
-    public class EfBlogRepository : GenericRepositrory<Blog>, IBlogDal
+    public class EfNatificationrepository : GenericRepositrory<Blog>, IBlogDal
     {
         public List<Blog> GetListWithCategory()
         {
         using(var c=new Context())
             {
                 return c.Blogs.Include(c => c.Category).ToList();
+            }
+        }
+
+        public List<Blog> GetListWithCategoryByWriter(int id)
+        {
+            using (var c=new Context())
+            {
+                return c.Blogs.Include(c => c.Category).Where(c => c.WriterId == id).ToList();
             }
         }
     }
